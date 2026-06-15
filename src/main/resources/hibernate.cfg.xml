@@ -37,6 +37,7 @@
         </property>
 
         <mapping class="com.expense.model.Menu"/>
+        <mapping class="com.expense.model.ExpenseItem"/>
         
 
     </session-factory>

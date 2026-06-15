@@ -8,13 +8,31 @@
 
     <constant name="struts.devMode" value="true"/>
 
-    <package name="default" extends="struts-default">
+    <package name="default" extends="struts-default,json-default">
 
         <action name="home"
                 class="com.expense.action.HomeAction">
 
             <result name="success">
                 /home.jsp
+            </result>
+
+        </action>
+
+        <action name="defaultExpense"
+                class="com.expense.action.DefaultExpenseAction">
+
+            <result name="success">
+                /defaultExpense.jsp
+            </result>
+
+        </action>
+
+        <action name="expenseItems"
+                class="com.expense.action.ExpenseItemAction">
+
+            <result type="json">
+                <param name="root">itemList</param>
             </result>
 
         </action>
