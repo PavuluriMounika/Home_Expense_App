@@ -1,17 +1,58 @@
-<%-- 
-    Document   : defaultExpense
-    Created on : 15-Jun-2026, 10:13:12 am
-    Author     : mounika
---%>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <h2>Default Expense Entry</h2>
 
-Expense Item:
-<select id="expenseItem">
-    <option>Loading...</option>
-</select>
+<div>
+    <label>
+        <s:property value="labels['label.expense.item']"/>
+    </label>
+    <br/>
+    
+    <select id="expenseItem">
+        <option>Loading...</option>
+    </select>
+</div>
+
+<br/>
+
+<div>
+    <label>
+        <s:property value="labels['label.amount']"/>
+    </label>
+    <br/>
+
+    <input type="text" id="amount"/>
+</div>
+
+<br/>
+
+<div>
+    <label>
+        <s:property value="labels['label.description']"/>
+    </label>
+    <br/>
+
+    <textarea id="description" rows="3" cols="30"></textarea>
+</div>
+
+<br/>
+
+<div>
+    <button type="button">
+        <s:property value="labels['button.save']"/>
+    </button>
+
+    <button type="button">
+        <s:property value="labels['button.save.new']"/>
+    </button>
+
+    <button type="reset">
+        <s:property value="labels['button.reset']"/>
+    </button>
+</div>
 
 <script>
 $(document).ready(function () {
