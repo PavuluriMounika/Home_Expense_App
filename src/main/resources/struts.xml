@@ -36,6 +36,12 @@
             </result>
 
         </action>
+        <action name="saveDefaultExpense"
+        class="com.expense.action.DefaultExpenseAction">
+
+            <result name="success" type="json"/>
+
+        </action>
 
     </package>
 

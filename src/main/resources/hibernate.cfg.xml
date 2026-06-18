@@ -39,6 +39,7 @@
         <mapping class="com.expense.model.Menu"/>
         <mapping class="com.expense.model.ExpenseItem"/>
         <mapping class="com.expense.model.AppLabel"/>
+        <mapping class="com.expense.model.DefaultExpense"/>
         
 
     </session-factory>

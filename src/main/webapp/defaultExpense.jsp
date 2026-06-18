@@ -2,7 +2,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script src="js/defaultExpense.js"></script>
 <h2>Default Expense Entry</h2>
 
 <div>
@@ -41,7 +41,7 @@
 <br/>
 
 <div>
-    <button type="button">
+    <button type="button" id="saveBtn">
         <s:property value="labels['button.save']"/>
     </button>
 
