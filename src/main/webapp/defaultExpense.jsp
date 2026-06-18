@@ -45,7 +45,7 @@
         <s:property value="labels['button.save']"/>
     </button>
 
-    <button type="button">
+    <button type="button" id="saveNewBtn">
         <s:property value="labels['button.save.new']"/>
     </button>
 

@@ -1,31 +1,35 @@
 $(document).ready(function() {
 
-    $("#saveBtn").click(function() {
+    function saveExpense(clearForm) {
 
-        var itemId = $("#expenseItem").val();
-        var amount = $("#amount").val();
-        var description = $("#description").val();
-         $.ajax({
+    var itemId = $("#expenseItem").val();
+    var amount = $("#amount").val();
+    var description = $("#description").val();
 
-            url: "saveDefaultExpense.action",
-            type: "POST",
-            data : {
-                itemId : itemId,
-
-               amount : amount,
-
-               description : description
+    $.ajax({
+        url: "saveDefaultExpense.action",
+        type: "POST",
+        data: {
+            itemId: itemId,
+            amount: amount,
+            description: description
         },
-        success: function(response) {
-                console.log("saved");
-            },
-
-        error: function() {
-                console.log("error");
+        success: function() {
+            console.log("saved");
+            if (clearForm) {
+                console.log("cleared");
+                $("#expenseItem").prop("selectedIndex", 0);
+                $("#amount").val("");
+                $("#description").val("");
             }
-
-        });
-       
+        }
+    });
+    }
+    $("#saveBtn").click(function() {
+        saveExpense(false);
+    });
+    $("#saveNewBtn").click(function() {
+        saveExpense(true);
     });
 
 });
