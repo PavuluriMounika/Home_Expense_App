@@ -49,7 +49,7 @@
         <s:property value="labels['button.save.new']"/>
     </button>
 
-    <button type="reset">
+    <button type="reset" id="resetBtn">
         <s:property value="labels['button.reset']"/>
     </button>
 </div>

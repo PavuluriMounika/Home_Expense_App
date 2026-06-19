@@ -31,5 +31,11 @@ $(document).ready(function() {
     $("#saveNewBtn").click(function() {
         saveExpense(true);
     });
+    $("#resetBtn").click(function() {
 
+        $("#expenseItem").prop("selectedIndex", 0);
+        $("#amount").val("");
+        $("#description").val("");
+
+    });
 });
