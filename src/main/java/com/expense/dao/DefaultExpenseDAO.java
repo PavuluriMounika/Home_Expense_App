@@ -2,15 +2,15 @@ package com.expense.dao;
 
 import com.expense.model.DefaultExpense;
 import com.expense.util.HibernateUtil;
+import java.util.*;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class DefaultExpenseDAO {
+    Session session = null;
+    Transaction transaction = null;
 
     public void save(DefaultExpense expense) {
-
-        Session session = null;
-        Transaction transaction = null;
 
         try {
 
@@ -36,5 +36,15 @@ public class DefaultExpenseDAO {
                 session.close();
             }
         }
+    }
+    
+    public List<DefaultExpense> getExpenseList(){
+        
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<DefaultExpense> expenseList =session.createQuery("from DefaultExpense", DefaultExpense.class)
+               .list();
+        session.close();
+
+        return expenseList;
     }
 }

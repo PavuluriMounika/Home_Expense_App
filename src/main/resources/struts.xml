@@ -36,13 +36,19 @@
             </result>
 
         </action>
-        <action name="saveDefaultExpense"
+        <action name="defaultExpense"
         class="com.expense.action.DefaultExpenseAction">
 
-            <result name="success" type="json"/>
+            <result name="success">
+                /defaultExpense.jsp
+            </result>
+
+            <result name="input">
+                /defaultExpense.jsp
+            </result>
 
         </action>
-
+        
     </package>
 
 </struts>
