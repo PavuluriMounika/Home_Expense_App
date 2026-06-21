@@ -47,7 +47,15 @@
                 /defaultExpense.jsp
             </result>
 
-        </action>
+            </action>
+            <action name="expenseList"
+                    class="com.expense.action.ExpenseListAction">
+
+                <result name="success">
+                    /expenseList.jsp
+                </result>
+
+            </action>
         
     </package>
 
