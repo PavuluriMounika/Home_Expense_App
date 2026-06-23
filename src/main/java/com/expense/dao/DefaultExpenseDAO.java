@@ -47,4 +47,12 @@ public class DefaultExpenseDAO {
 
         return expenseList;
     }
+    
+    public DefaultExpense getExpenseById(int expenseId){
+        session = HibernateUtil.getSessionFactory().openSession();
+        DefaultExpense expense = session.get(DefaultExpense.class, expenseId);
+        session.close();
+        return expense;  
+            
+    }
 }

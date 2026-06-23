@@ -16,5 +16,9 @@ public class DefaultExpenseService {
     public List<DefaultExpense> getExpenseList() {
         return defaultExpenseDAO.getExpenseList();
     }
+    public DefaultExpense getExpenseById(int expenseId) {
+        return defaultExpenseDAO.getExpenseById(expenseId);
+    }
+    
     
 }

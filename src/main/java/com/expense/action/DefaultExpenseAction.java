@@ -22,6 +22,9 @@ public class DefaultExpenseAction extends ActionSupport {
     private int itemId;
     private BigDecimal amount;
     private String description;
+    private int expenseId;
+    private DefaultExpenseService service = new DefaultExpenseService();
+    private DefaultExpense expense;
 
     public String execute() {
 
@@ -39,6 +42,15 @@ public class DefaultExpenseAction extends ActionSupport {
         defaultExpenseService.save(expense);
 
         labels = appLabelService.getLabels();
+
+        return SUCCESS;
+    }
+    public String loadExpense() {
+
+        if (expenseId > 0) {
+
+            expense = service.getExpenseById(expenseId);
+        }
 
         return SUCCESS;
     }
@@ -76,5 +88,22 @@ public class DefaultExpenseAction extends ActionSupport {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public int getExpenseId() {
+        return expenseId;
+    }
+
+    public void setExpenseId(int expenseId) {
+        this.expenseId = expenseId;
+    }
+
+    public DefaultExpense getExpense() {
+        return expense;
+    }
+
+    public void setExpense(DefaultExpense expense) {
+        this.expense = expense;
+    }
+    
     
 }

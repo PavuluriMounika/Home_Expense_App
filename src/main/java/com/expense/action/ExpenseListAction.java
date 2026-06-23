@@ -32,10 +32,6 @@ public class ExpenseListAction extends ActionSupport{
     public void setList(List<DefaultExpense> list) {
         this.list = list;
     }
-     
-    
-    
-    
-    
+       
     
 }

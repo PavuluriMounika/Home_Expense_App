@@ -56,7 +56,15 @@
                 </result>
 
             </action>
-        
+           <action name="loadExpense"
+                class="com.expense.action.DefaultExpenseAction"
+                method="loadExpense">
+
+            <result type="json">
+                <param name="root">expense</param>
+            </result>
+
+        </action>
     </package>
 
 </struts>

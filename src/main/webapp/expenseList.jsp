@@ -23,7 +23,8 @@
 
         <s:iterator value="list">
             <tr>
-                <td><s:property value="expenseId"/></td>
+                <td><a href="defaultExpense.action?expenseId=<s:property value='expenseId'/>">
+                     <s:property value="expenseId"/></a></td>
                 <td><s:property value="itemId"/></td>
                 <td><s:property value="amount"/></td>
                 <td><s:property value="description"/></td>

@@ -38,4 +38,46 @@ $(document).ready(function() {
         $("#description").val("");
 
     });
+   
+    // Load Expense Items Dropdown
+    $.ajax({
+        url: "expenseItems.action",
+        type: "GET",
+        success: function (data) {
+
+            let options = "";
+
+            $.each(data, function (i, item) {
+                options += "<option value='" + item.itemId + "'>"
+                        + item.itemName + "</option>";
+            });
+
+            $("#expenseItem").html(options);
+
+            // Load expense for edit
+            const expenseId = new URLSearchParams(window.location.search)
+                    .get("expenseId");
+
+            if (expenseId) {
+
+                $.ajax({
+                    url: "loadExpense.action",
+                    type: "GET",
+                    data: {
+                        expenseId: expenseId
+                    },
+                    success: function (expense) {
+
+                        console.log(expense);
+
+                        $("#expenseItem").val(expense.itemId);
+                        $("#amount").val(expense.amount);
+                        $("#description").val(expense.description);
+                    }
+                });
+            }
+        }
+    });
+
+
 });
