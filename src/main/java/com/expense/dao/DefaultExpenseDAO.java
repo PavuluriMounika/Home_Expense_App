@@ -55,4 +55,33 @@ public class DefaultExpenseDAO {
         return expense;  
             
     }
+    
+    public void update(DefaultExpense expense) {
+
+        try {
+
+            session = HibernateUtil.getSessionFactory().openSession();
+
+            transaction = session.beginTransaction();
+
+            session.update(expense);
+
+            transaction.commit();
+
+        } catch (Exception e) {
+
+            if (transaction != null) {
+                transaction.rollback();
+            }
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (session != null) {
+                session.close();
+            }
+        }
+    }
+    
 }

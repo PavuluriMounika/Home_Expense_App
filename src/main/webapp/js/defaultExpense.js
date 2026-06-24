@@ -69,7 +69,7 @@ $(document).ready(function() {
                     success: function (expense) {
 
                         console.log(expense);
-
+                        $("#expenseId").val(expense.expenseId);
                         $("#expenseItem").val(expense.itemId);
                         $("#amount").val(expense.amount);
                         $("#description").val(expense.description);

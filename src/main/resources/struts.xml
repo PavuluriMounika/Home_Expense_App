@@ -65,6 +65,12 @@
             </result>
 
         </action>
+        <action name="expenseView" class="com.expense.action.DefaultExpenseAction">
+            <result name="success">/expenseView.jsp</result>
+        </action>
+        <action name="updateExpense" class="com.expense.action.DefaultExpenseAction" method="update">
+            <result name="success">/expenseView.jsp</result>
+        </action>
     </package>
 
 </struts>

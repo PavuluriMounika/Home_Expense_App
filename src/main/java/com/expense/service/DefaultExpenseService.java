@@ -19,6 +19,9 @@ public class DefaultExpenseService {
     public DefaultExpense getExpenseById(int expenseId) {
         return defaultExpenseDAO.getExpenseById(expenseId);
     }
+    public void update(DefaultExpense expense){
+        defaultExpenseDAO.update(expense);
+    }
     
     
 }

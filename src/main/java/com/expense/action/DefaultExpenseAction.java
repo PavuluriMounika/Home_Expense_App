@@ -54,6 +54,23 @@ public class DefaultExpenseAction extends ActionSupport {
 
         return SUCCESS;
     }
+    
+    public String update(){
+        AppLabelService appLabelService = new AppLabelService();
+
+        DefaultExpense expense = new DefaultExpense();
+        expense.setItemId(itemId);
+        expense.setAmount(amount);
+        expense.setDescription(description);
+        expense.setExpenseId(expenseId);
+        service.update(expense);
+
+        labels = appLabelService.getLabels();
+
+        
+        
+        return SUCCESS;
+    }
 
     // getters and setters
 
