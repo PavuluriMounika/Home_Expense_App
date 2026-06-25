@@ -25,4 +25,9 @@ $(document).ready(function() {
         
         
     });
+    $("#cancelBtn").click(function() {
+
+        window.location.href = "expenseList.action";
+
+    });
 });
