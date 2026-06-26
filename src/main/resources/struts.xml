@@ -71,6 +71,9 @@
         <action name="updateExpense" class="com.expense.action.DefaultExpenseAction" method="update">
             <result name="success">/expenseView.jsp</result>
         </action>
+        <action name="deleteExpense" class="com.expense.action.DefaultExpenseAction" method="delete">
+            <result name="success">/expenseView.jsp</result>
+        </action>
     </package>
-
+    
 </struts>

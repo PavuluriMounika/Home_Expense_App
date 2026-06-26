@@ -71,6 +71,10 @@ public class DefaultExpenseAction extends ActionSupport {
         
         return SUCCESS;
     }
+    public String delete() {
+        service.delete(expenseId);
+        return SUCCESS;
+    }
 
     // getters and setters
 

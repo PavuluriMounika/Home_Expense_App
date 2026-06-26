@@ -22,6 +22,9 @@ public class DefaultExpenseService {
     public void update(DefaultExpense expense){
         defaultExpenseDAO.update(expense);
     }
+    public void delete(int expenseId){
+        defaultExpenseDAO.delete(expenseId);
+    } 
     
     
 }

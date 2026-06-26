@@ -30,4 +30,28 @@ $(document).ready(function() {
         window.location.href = "expenseList.action";
 
     });
+    
+    $("#deleteBtn").click(function(){
+        var expenseId = $("#expenseId").val();
+        
+        if (confirm("Are you sure you want to delete this expense?")) {
+            
+            $.ajax({
+                url : "deleteExpense.action",
+                type: "POST",
+                data : {
+                    expenseId : expenseId
+                },
+                success: function(response){
+                    console.log("deleted");
+                     window.location.href = "expenseList.action";
+                }
+                
+            });
+            
+        }
+        
+    });
+    
+    
 });

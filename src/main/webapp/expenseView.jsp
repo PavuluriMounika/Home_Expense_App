@@ -62,6 +62,9 @@
         <button type="button" id="cancelBtn">
             Cancel
         </button>
+        <button type="button" id="deleteBtn">
+            Delete
+        </button>
     </div>
 
 </body>

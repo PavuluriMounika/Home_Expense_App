@@ -84,4 +84,36 @@ public class DefaultExpenseDAO {
         }
     }
     
+    public void delete(int expenseId){
+        
+        try {
+            session = HibernateUtil.getSessionFactory().openSession();
+
+            transaction = session.beginTransaction();
+
+            DefaultExpense expense =
+                    session.get(DefaultExpense.class, expenseId);
+
+            if (expense != null) {
+                session.delete(expense);
+            }
+
+            transaction.commit();
+        
+        }catch (Exception e) {
+
+            if (transaction != null) {
+                transaction.rollback();
+            }
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (session != null) {
+                session.close();
+            }
+        }
+    }   
+    
 }
