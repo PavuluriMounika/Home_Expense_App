@@ -114,6 +114,15 @@ public class DefaultExpenseDAO {
                 session.close();
             }
         }
-    }   
+    }  
+    public List<DefaultExpense> selectByItemId(int itemId) {   
+       
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<DefaultExpense> expenseList =session.createQuery("from DefaultExpense where itemId = :itemId", DefaultExpense.class)
+               .setParameter("itemId",itemId).list();
+        session.close();
+        return expenseList;
+        
+    }
     
 }
