@@ -9,6 +9,7 @@ import com.expense.service.AppLabelService;
 import com.expense.service.DefaultExpenseService;
 import com.opensymphony.xwork2.ActionSupport;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,6 +26,7 @@ public class DefaultExpenseAction extends ActionSupport {
     private int expenseId;
     private DefaultExpenseService service = new DefaultExpenseService();
     private DefaultExpense expense;
+    private List<DefaultExpense> list;
 
     public String execute() {
 
@@ -75,7 +77,12 @@ public class DefaultExpenseAction extends ActionSupport {
         service.delete(expenseId);
         return SUCCESS;
     }
+    public String searchByItem() {
 
+        list = service.selectByItemId(itemId);
+
+    return SUCCESS;
+    }
     // getters and setters
 
     public Map<String, String> getLabels() {
@@ -125,6 +132,13 @@ public class DefaultExpenseAction extends ActionSupport {
     public void setExpense(DefaultExpense expense) {
         this.expense = expense;
     }
-    
+    public List<DefaultExpense> getList() {
+        return list;
+    }
+
+    public void setList(List<DefaultExpense> list) {
+        this.list = list;
+    }
+
     
 }

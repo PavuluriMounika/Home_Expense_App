@@ -25,6 +25,9 @@ public class DefaultExpenseService {
     public void delete(int expenseId){
         defaultExpenseDAO.delete(expenseId);
     } 
+    public List<DefaultExpense> selectByItemId(int itemId) {
+        return defaultExpenseDAO.selectByItemId(itemId);
+    }
     
     
 }
