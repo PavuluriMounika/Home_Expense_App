@@ -74,6 +74,15 @@
         <action name="deleteExpense" class="com.expense.action.DefaultExpenseAction" method="delete">
             <result name="success">/expenseView.jsp</result>
         </action>
+        <action name="searchItem"
+                class="com.expense.action.DefaultExpenseAction"
+                method="searchByItem">
+            <result type="json">
+                <param name="root">list</param>
+            </result>
+
+        </action>
+        
     </package>
     
 </struts>
