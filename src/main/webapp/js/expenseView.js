@@ -52,6 +52,30 @@ $(document).ready(function() {
         }
         
     });
+    $("#searchBtn").click(function () {
+
+        var itemId = $("#expenseItem").val();
+
+        $.ajax({
+
+           url: "searchItem.action",
+
+            type: "GET",
+
+            data: {
+                     itemId: itemId
+            },
+
+            success: function(response) {
+
+                console.log(response);
+
+            }
+
+        });
+
+    });
+    
     
     
 });
