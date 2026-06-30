@@ -10,26 +10,47 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/expenseList.js"></script>
     </head>
     <body>
-    <table border="1">
-        <tr>
-            <th>Expense Id</th>
-            <th>Item Id</th>
-            <th>Amount</th>
-            <th>Description</th>
-        </tr>
+        <div>
+            <label>Item</label>
+
+            <select id="expenseItem">
+                <option>Loading...</option>
+            </select>
+
+            <button type="button" id="searchBtn">
+                Search
+            </button>
+        </div>
+
+    <br/>
+<table border="1">
+    <tr>
+        <th>Expense Id</th>
+        <th>Item Id</th>
+        <th>Amount</th>
+        <th>Description</th>
+    </tr>
+
+    <tbody id="expenseTableBody">
 
         <s:iterator value="list">
             <tr>
-                <td><a href="expenseView.action?expenseId=<s:property value='expenseId'/>">
-                     <s:property value="expenseId"/></a></td>
+                <td>
+                    <a href="expenseView.action?expenseId=<s:property value='expenseId'/>">
+                        <s:property value="expenseId"/>
+                    </a>
+                </td>
                 <td><s:property value="itemId"/></td>
                 <td><s:property value="amount"/></td>
                 <td><s:property value="description"/></td>
             </tr>
         </s:iterator>
-    </table>
+
+    </tbody>
+</table>
     </body>
 </html>

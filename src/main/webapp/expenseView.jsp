@@ -28,9 +28,7 @@
         <select id="expenseItem">
             <option>Loading...</option>
         </select>
-        <button type="button" id="searchBtn">
-        Search
-    </button>
+        
     </div>
 
     <br/>
