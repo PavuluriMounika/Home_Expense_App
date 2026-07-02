@@ -78,9 +78,12 @@ public class DefaultExpenseAction extends ActionSupport {
         return SUCCESS;
     }
     public String searchByItem() {
-
-        list = service.selectByItemId(itemId);
-
+        if (itemId == 0) {
+            list = service.getExpenseList();
+        } else {
+            list = service.selectByItemId(itemId);
+        }
+       
     return SUCCESS;
     }
     // getters and setters

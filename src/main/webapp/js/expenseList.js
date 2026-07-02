@@ -5,7 +5,7 @@ $(document).ready(function () {
         type: "GET",
         success: function(data) {
 
-            let options = "";
+            let options = "<option value='0'>All</option>";
 
             $.each(data, function(i, item) {
                 options += "<option value='" + item.itemId + "'>"

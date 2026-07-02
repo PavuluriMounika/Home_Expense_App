@@ -18,7 +18,7 @@
             <label>Item</label>
 
             <select id="expenseItem">
-                <option>Loading...</option>
+                <option value="0">All</option>
             </select>
 
             <button type="button" id="searchBtn">
