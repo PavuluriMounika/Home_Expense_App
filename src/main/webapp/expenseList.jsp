@@ -24,14 +24,14 @@
             <button type="button" id="searchBtn">
                 Search
             </button>
-        </div>
+        
         
             <label>Export</label>
 
             <select id="exportType">
                 <option value="pdf">PDF</option>
             </select>
-        </div
+    </div>
 
     <br/>
 <table border="1">

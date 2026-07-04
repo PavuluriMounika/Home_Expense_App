@@ -82,6 +82,9 @@
             </result>
 
         </action>
+       <action name="exportPdf"  class="com.expense.action.DefaultExpenseAction" method="exportPdf">
+            <result>/expenseList.jsp</result>
+        </action>
         
     </package>
     

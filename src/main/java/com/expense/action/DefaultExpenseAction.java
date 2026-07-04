@@ -142,6 +142,10 @@ public class DefaultExpenseAction extends ActionSupport {
     public void setList(List<DefaultExpense> list) {
         this.list = list;
     }
+    public String exportPdf() {
+        list = service.getExpenseList();
+        return SUCCESS;
+    }   
 
     
-}
+}   
