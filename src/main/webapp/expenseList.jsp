@@ -25,10 +25,8 @@
                 Search
             </button>
         
-        
-            <label>Export</label>
-
             <select id="exportType">
+                <option value="">Select</option>
                 <option value="pdf">PDF</option>
             </select>
     </div>

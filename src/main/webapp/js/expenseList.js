@@ -50,5 +50,16 @@ $(document).ready(function () {
     });
 
     });
+    $("#exportType").change(function () {
+
+        console.log("PDF selected");
+
+        var exportType = $(this).val();
+
+        if (exportType === "pdf") {
+            window.open("exportPdf.action", "_blank");
+        }
+
+    });
 
 });

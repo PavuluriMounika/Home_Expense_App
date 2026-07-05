@@ -7,11 +7,15 @@ package com.expense.action;
 import com.expense.model.DefaultExpense;
 import com.expense.service.AppLabelService;
 import com.expense.service.DefaultExpenseService;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.opensymphony.xwork2.ActionSupport;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
-
+import javax.servlet.http.HttpServletResponse;
+import org.apache.struts2.ServletActionContext;
 /**
  *
  * @author mounika
@@ -143,9 +147,31 @@ public class DefaultExpenseAction extends ActionSupport {
         this.list = list;
     }
     public String exportPdf() {
-        list = service.getExpenseList();
-        return SUCCESS;
-    }   
 
+        list = service.getExpenseList();
+
+        HttpServletResponse response = ServletActionContext.getResponse();
+
+        try {
+
+            Document document = new Document();
+
+            response.setContentType("application/pdf");
+
+            PdfWriter.getInstance(document, response.getOutputStream());
+
+            document.open();
+
+            document.add(new Paragraph("Expense Report"));
+
+            document.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return NONE;
+    }
+    
     
 }   
