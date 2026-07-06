@@ -9,8 +9,10 @@ import com.expense.service.AppLabelService;
 import com.expense.service.DefaultExpenseService;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.opensymphony.xwork2.ActionSupport;
+import static java.lang.System.in;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
@@ -148,30 +150,47 @@ public class DefaultExpenseAction extends ActionSupport {
     }
     public String exportPdf() {
 
-        list = service.getExpenseList();
+            list = service.getExpenseList();
 
-        HttpServletResponse response = ServletActionContext.getResponse();
+            HttpServletResponse response = ServletActionContext.getResponse();
 
-        try {
+            try {
 
-            Document document = new Document();
+                Document document = new Document();
 
-            response.setContentType("application/pdf");
+                response.setContentType("application/pdf");
 
-            PdfWriter.getInstance(document, response.getOutputStream());
+                PdfWriter.getInstance(document, response.getOutputStream());
 
-            document.open();
+                document.open();
 
-            document.add(new Paragraph("Expense Report"));
+                document.add(new Paragraph("Expense Report"));
 
-            document.close();
+                PdfPTable table = new PdfPTable(4);
 
-        } catch (Exception e) {
-            e.printStackTrace();
+                table.addCell("Expense Id");
+                table.addCell("Item Id");
+                table.addCell("Amount");
+                table.addCell("Description");
+
+                for (DefaultExpense expense : list) {
+
+                    table.addCell(String.valueOf(expense.getExpenseId()));
+                    table.addCell(String.valueOf(expense.getItemId()));
+                    table.addCell(expense.getAmount().toString());
+                    table.addCell(expense.getDescription());
+
+                }
+
+                document.add(table);
+
+                document.close();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return NONE;
         }
-
-        return NONE;
-    }
-    
     
 }   
