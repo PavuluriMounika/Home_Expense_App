@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Element;
 /**
  *
  * @author mounika
@@ -163,9 +165,13 @@ public class DefaultExpenseAction extends ActionSupport {
                 PdfWriter.getInstance(document, response.getOutputStream());
 
                 document.open();
+                Font titleFont = new Font(Font.FontFamily.HELVETICA, 18, Font.BOLD);
 
-                document.add(new Paragraph("Expense Report"));
-
+                Paragraph title = new Paragraph("Expense Report", titleFont);
+                title.setAlignment(Element.ALIGN_CENTER);
+                title.setSpacingAfter(20f);
+                document.add(title);
+                
                 PdfPTable table = new PdfPTable(4);
 
                 table.addCell("Expense Id");
