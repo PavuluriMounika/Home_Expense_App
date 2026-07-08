@@ -178,6 +178,10 @@ public class DefaultExpenseAction extends ActionSupport {
                 table.addCell("Item Id");
                 table.addCell("Amount");
                 table.addCell("Description");
+                BigDecimal total = BigDecimal.ZERO;
+                for(DefaultExpense expense : list){
+                    total =total.add(expense.getAmount());
+                }
 
                 for (DefaultExpense expense : list) {
 
@@ -189,7 +193,8 @@ public class DefaultExpenseAction extends ActionSupport {
                 }
 
                 document.add(table);
-
+                Paragraph totalAmount = new Paragraph("Total Amount : ₹ " + total);
+                document.add(totalAmount);
                 document.close();
 
             } catch (Exception e) {
