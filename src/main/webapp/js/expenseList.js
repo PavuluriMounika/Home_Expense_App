@@ -57,7 +57,8 @@ $(document).ready(function () {
         var exportType = $(this).val();
 
         if (exportType === "pdf") {
-            window.open("exportPdf.action", "_blank");
+            var itemId = $("#expenseItem").val();
+            window.open("exportPdf.action?itemId=" + itemId, "_blank");
         }
 
     });

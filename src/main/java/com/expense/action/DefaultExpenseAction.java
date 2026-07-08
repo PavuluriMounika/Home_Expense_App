@@ -152,7 +152,11 @@ public class DefaultExpenseAction extends ActionSupport {
     }
     public String exportPdf() {
 
-            list = service.getExpenseList();
+            if (itemId == 0) {
+                list = service.getExpenseList();
+            } else {
+                list = service.selectByItemId(itemId);
+            }
 
             HttpServletResponse response = ServletActionContext.getResponse();
 
