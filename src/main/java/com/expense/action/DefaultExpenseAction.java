@@ -198,6 +198,7 @@ public class DefaultExpenseAction extends ActionSupport {
 
                 document.add(table);
                 Paragraph totalAmount = new Paragraph("Total Amount : ₹ " + total);
+                totalAmount.setSpacingBefore(15f);  
                 document.add(totalAmount);
                 document.close();
 
