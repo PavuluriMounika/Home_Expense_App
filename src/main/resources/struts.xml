@@ -86,6 +86,9 @@
         class="com.expense.action.DefaultExpenseAction"
         method="exportPdf">
      </action>
+     <action name="monthlyExpense" class="com.expense.action.MonthlyExpenseAction">
+        <result name="success">/monthlyExpense.jsp</result>
+    </action>
         
     </package>
     
