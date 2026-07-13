@@ -14,6 +14,8 @@ import java.util.List;
  * @author mounika
  */
 public class MonthlyExpenseAction extends ActionSupport{
+    private int year;
+    private String month;
     private MonthlyExpenseService service = new MonthlyExpenseService();
     private List<MonthlyExpense> list;
     
@@ -28,6 +30,23 @@ public class MonthlyExpenseAction extends ActionSupport{
     public void setList(List<MonthlyExpense> list) {
         this.list = list;
     }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+    
     
     
 }
