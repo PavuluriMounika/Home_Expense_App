@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,13 +15,19 @@
     <body>
         <h1>Monthly Expense</h1><br></br>
         <label>Year</label>
-        <select id="yearId">
-            <option value="">Select Year</option>
-        </select><br></br>
-       <label>Month</label>
-        <select id="monthId">
-            <option value="">Select Month</option>
-        </select><br></br>
+            <s:select
+        id="yearId"
+        name="year"
+        list="yearList"
+        headerKey=""
+        headerValue="Select Year"/><br></br>
+        <label>Month</label>
+        <s:select
+            id="monthId"
+            name="month"
+            list="monthList"
+            headerKey=""
+            headerValue="Select Month"/><br></br>
         <button id="loadBtn">Load Default Expenses</button>
     </body>
 </html>
