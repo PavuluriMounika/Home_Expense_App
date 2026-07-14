@@ -89,6 +89,15 @@
      <action name="monthlyExpense" class="com.expense.action.MonthlyExpenseAction">
         <result name="success">/monthlyExpense.jsp</result>
     </action>
+    <action name="loadDefaultExpenses"
+                class="com.expense.action.MonthlyExpenseAction"
+                method="loadDefaultExpenses">
+
+            <result type="json">
+                <param name="root">defaultExpenseList</param>
+            </result>
+
+    </action>
         
     </package>
     
