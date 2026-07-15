@@ -1,9 +1,17 @@
 $(document).ready(function () {
+    let isTableVisible = false;
     
     $("#loadBtn").click(function(){
         var year = $("#yearId").val();
         var month = $("#monthId").val();
         let rows = "";
+        if(isTableVisible){
+           $("#monthlyExpenseTable").hide();
+            isTableVisible = false;
+            $(this).text("Load Default Expenses");
+            return;
+            
+        }
         
         $.ajax({
 
@@ -27,12 +35,16 @@ $(document).ready(function () {
 
                     });
                     $("#monthlyExpenseBody").html(rows);
+                    isTableVisible = true;
+                     $("#monthlyExpenseTable").show();
+                    $("#loadBtn").text("Hide Default Expenses");
                     
                     console.log(response);
 
                 }
 
             });
+            
 
         });
 

@@ -31,20 +31,21 @@
             headerKey=""
             headerValue="Select Month"/><br></br>
         <button id="loadBtn">Load Default Expenses</button>
-        
-        <table border="1">
-        <thead>
-            <tr>
-                <th>Expense Id</th>
-                <th>Item Id</th>
-                <th>Amount</th>
-                <th>Description</th>
-            </tr>
-        </thead>
+        <div id="monthlyExpenseTable" style="display: none">   
+                <table border="1">
+                <thead>
+                    <tr>
+                        <th>Expense Id</th>
+                        <th>Item Id</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
 
-        <tbody id="monthlyExpenseBody">
+                <tbody id="monthlyExpenseBody">
 
-        </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>
