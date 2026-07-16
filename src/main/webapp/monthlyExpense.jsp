@@ -47,5 +47,6 @@
                 </tbody>
             </table>
         </div>
+        <button id="addRowBtn">Add Row</button>
     </body>
 </html>

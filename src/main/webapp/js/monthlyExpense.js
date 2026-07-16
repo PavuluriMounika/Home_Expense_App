@@ -47,5 +47,28 @@ $(document).ready(function () {
             
 
         });
+        $("#addRowBtn").click(function(){
+            let row = "";
+            row = `
+                <tr>
+                    <td>
+                        <input type="text">
+                    </td>
+
+                    <td>
+                        <input type="text">
+                    </td>
+
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                </tr>
+                `;
+            $("#monthlyExpenseBody").append(row);
+
+        });
 
 });
