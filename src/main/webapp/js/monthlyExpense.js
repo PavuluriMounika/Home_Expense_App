@@ -26,10 +26,21 @@ $(document).ready(function () {
                     $.each(response,function(i,expense){
                         rows += `
                             <tr>
-                                <td>${expense.expenseId}</td>
-                                <td>${expense.itemId}</td>
-                                <td>${expense.amount}</td>
-                                <td>${expense.description}</td>
+                                <td>
+                                    <input class="foodValue" value="${expense.expenseId}">
+                                </td>
+
+                                <td>
+                                    <input class="itemValue" value="${expense.itemId}">
+                                </td>
+
+                                <td>
+                                    <input class="amountValue" value="${expense.amount}">
+                                </td>
+
+                                <td>
+                                    <input class="descriptionValue" value="${expense.description}">
+                                </td>
                             </tr>
                             `;
 
@@ -52,22 +63,46 @@ $(document).ready(function () {
             row = `
                 <tr>
                     <td>
-                        <input type="text">
+                        <input class="foodValue">
                     </td>
 
                     <td>
-                        <input type="text">
+                        <input class="itemValue">
                     </td>
 
                     <td>
-                        <input type="text">
+                        <input class="amountValue">
                     </td>
                     <td>
-                        <input type="text">
+                        <input class="descriptionValue">
                     </td>
                 </tr>
                 `;
             $("#monthlyExpenseBody").append(row);
+
+        });
+        $("#saveBtn").click(function() {
+
+            let expenseList = [];
+
+            $("#monthlyExpenseBody tr").each(function() {
+
+                let food = $(this).find(".foodValue").val();
+                let item = $(this).find(".itemValue").val();
+                let amount = $(this).find(".amountValue").val();
+                let description = $(this).find(".descriptionValue").val();
+
+                let object = {
+                    food: food,
+                    item: item,
+                    amount: amount,
+                    description: description
+                };
+
+                expenseList.push(object);
+            });
+
+            console.log(expenseList);
 
         });
 

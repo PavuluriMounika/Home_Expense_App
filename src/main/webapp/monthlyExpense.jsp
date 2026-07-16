@@ -48,5 +48,6 @@
             </table>
         </div>
         <button id="addRowBtn">Add Row</button>
+        <button id="saveBtn">Save</button>
     </body>
 </html>
