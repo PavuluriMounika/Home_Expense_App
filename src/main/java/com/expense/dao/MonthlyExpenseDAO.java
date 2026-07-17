@@ -5,6 +5,7 @@
 package com.expense.dao;
 
 import com.expense.model.MonthlyExpense;
+import com.expense.model.MonthlyExpenses;
 import java.util.List;
 import com.expense.util.HibernateUtil;
 import org.hibernate.Session;
@@ -48,6 +49,17 @@ public class MonthlyExpenseDAO {
         return list;
         
     }
-    
+    public void saveMonthlyExpenses(List<MonthlyExpenses> expenseList) {
+
+        session = HibernateUtil.getSessionFactory().openSession();
+        transaction = session.beginTransaction();
+
+        for (MonthlyExpenses expense : expenseList) {
+            session.save(expense);
+        }
+
+        transaction.commit();
+        session.close();
+    }
     
 }

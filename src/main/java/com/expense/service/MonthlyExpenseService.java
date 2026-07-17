@@ -2,6 +2,7 @@ package com.expense.service;
 
 import com.expense.dao.MonthlyExpenseDAO;
 import com.expense.model.MonthlyExpense;
+import com.expense.model.MonthlyExpenses;
 import java.util.List;
 
 public class MonthlyExpenseService {
@@ -13,5 +14,7 @@ public class MonthlyExpenseService {
         return dao.getMonthlyExpenses();
 
     }
-
+    public void saveMonthlyExpenses(List<MonthlyExpenses> expenseList) {
+        dao.saveMonthlyExpenses(expenseList);
+    }
 }

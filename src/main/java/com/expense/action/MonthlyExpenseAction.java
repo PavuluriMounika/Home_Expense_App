@@ -6,6 +6,7 @@ package com.expense.action;
 
 import com.expense.model.DefaultExpense;
 import com.expense.model.MonthlyExpense;
+import com.expense.model.MonthlyExpenses;
 import com.expense.service.DefaultExpenseService;
 import com.expense.service.MonthlyExpenseService;
 import com.opensymphony.xwork2.ActionSupport;
@@ -25,6 +26,7 @@ public class MonthlyExpenseAction extends ActionSupport{
     private DefaultExpenseService defaultExpenseService =new DefaultExpenseService();
     private List<MonthlyExpense> list;
     private int year;
+    private List<MonthlyExpenses> expenseList;
 
     private String month;
 
@@ -54,6 +56,12 @@ public class MonthlyExpenseAction extends ActionSupport{
 
         return SUCCESS;
 
+    }
+    public String saveMonthlyExpenses() {
+
+        service.saveMonthlyExpenses(expenseList);
+
+        return SUCCESS;
     }
     public List<MonthlyExpense> getList() {
     return list;
@@ -102,7 +110,16 @@ public class MonthlyExpenseAction extends ActionSupport{
     public void setDefaultExpenseList(List<DefaultExpense> defaultExpenseList) {
         this.defaultExpenseList = defaultExpenseList;
     }
+
+    public List<MonthlyExpenses> getExpenseList() {
+        return expenseList;
+    }
+
+    public void setExpenseList(List<MonthlyExpenses> expenseList) {
+        this.expenseList = expenseList;
+    }
     
 
-      
-}
+
+
+    }
