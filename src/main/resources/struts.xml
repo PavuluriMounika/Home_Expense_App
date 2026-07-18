@@ -98,7 +98,14 @@
             </result>
 
     </action>
-        
+    <action
+        name="saveMonthlyExpenses"
+        class="com.expense.action.MonthlyExpenseAction"
+        method="saveMonthlyExpenses">
+
+        <result name="success">/jsp/monthlyExpense.jsp</result>
+
+    </action>
     </package>
     
 </struts>
