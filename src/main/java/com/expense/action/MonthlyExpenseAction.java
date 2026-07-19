@@ -14,6 +14,8 @@ import java.text.DateFormatSymbols;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.Gson;
 
 /**
  *
@@ -26,7 +28,7 @@ public class MonthlyExpenseAction extends ActionSupport{
     private DefaultExpenseService defaultExpenseService =new DefaultExpenseService();
     private List<MonthlyExpense> list;
     private int year;
-    private List<MonthlyExpenses> expenseList;
+    private  String expenseList;
 
     private String month;
 
@@ -59,7 +61,15 @@ public class MonthlyExpenseAction extends ActionSupport{
     }
     public String saveMonthlyExpenses() {
 
-        service.saveMonthlyExpenses(expenseList);
+        Gson gson = new Gson();
+
+        List<MonthlyExpenses> monthlyExpenses =
+                gson.fromJson(
+                        expenseList,
+                        new TypeToken<List<MonthlyExpenses>>() {}.getType()
+                );
+
+        service.saveMonthlyExpenses(monthlyExpenses);
 
         return SUCCESS;
     }
@@ -111,15 +121,15 @@ public class MonthlyExpenseAction extends ActionSupport{
         this.defaultExpenseList = defaultExpenseList;
     }
 
-    public List<MonthlyExpenses> getExpenseList() {
+    public String getExpenseList() {
         return expenseList;
     }
 
-    public void setExpenseList(List<MonthlyExpenses> expenseList) {
+    public void setExpenseList(String expenseList) {
         this.expenseList = expenseList;
     }
     
 
-
-
+    
+    
     }

@@ -83,27 +83,50 @@ $(document).ready(function () {
         });
         $("#saveBtn").click(function() {
 
-            let expenseList = [];
+        let expenseList = [];
 
-            $("#monthlyExpenseBody tr").each(function() {
+        $("#monthlyExpenseBody tr").each(function () {
 
-                let food = $(this).find(".foodValue").val();
-                let item = $(this).find(".itemValue").val();
-                let amount = $(this).find(".amountValue").val();
-                let description = $(this).find(".descriptionValue").val();
+            let item = $(this).find(".itemValue").val();
+            let amount = $(this).find(".amountValue").val();
+            let description = $(this).find(".descriptionValue").val();
 
-                let object = {
-                    food: food,
-                    item: item,
+            if(item !== "" && amount !== ""){
+
+                expenseList.push({
+                    itemId: item,
                     amount: amount,
-                    description: description
-                };
+                    description: description,
+                    expenseYear: $("#yearId").val(),
+                    expenseMonth: $("#monthId").val(),
+                    activeFlag: "Y"
+                });
+            }
+        });
 
-                expenseList.push(object);
-            });
+        console.log("Expense List:");
+        console.log(expenseList);
 
-            console.log(expenseList);
+        $.ajax({
+
+            url: "saveMonthlyExpenses.action",
+            type: "POST",
+
+            data: {
+                expenseList: JSON.stringify(expenseList)
+            },
+
+            success: function(response) {
+                console.log("Saved Successfully!");
+            },
+
+            error: function(error) {
+                console.log("Error:");
+                console.log(error);
+            }
 
         });
+
+    });
 
 });

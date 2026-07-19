@@ -51,15 +51,31 @@ public class MonthlyExpenseDAO {
     }
     public void saveMonthlyExpenses(List<MonthlyExpenses> expenseList) {
 
-        session = HibernateUtil.getSessionFactory().openSession();
-        transaction = session.beginTransaction();
+        try {
 
-        for (MonthlyExpenses expense : expenseList) {
-            session.save(expense);
+            session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+
+            for (MonthlyExpenses expense : expenseList) {
+                session.save(expense);
+            }
+
+            transaction.commit();
+
+        } catch (Exception e) {
+
+            if (transaction != null) {
+                transaction.rollback();
+            }
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (session != null) {
+                session.close();
+            }
         }
-
-        transaction.commit();
-        session.close();
     }
     
 }
