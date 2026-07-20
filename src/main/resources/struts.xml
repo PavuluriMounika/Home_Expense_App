@@ -94,7 +94,7 @@
                 method="loadDefaultExpenses">
 
             <result type="json">
-                <param name="root">defaultExpenseList</param>
+                <param name="root">finalList</param>
             </result>
 
     </action>

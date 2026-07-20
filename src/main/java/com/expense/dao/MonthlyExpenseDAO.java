@@ -77,5 +77,41 @@ public class MonthlyExpenseDAO {
             }
         }
     }
+    public List<MonthlyExpenses> getMonthlyExpenses(int year,String month){
+        List<MonthlyExpenses> list = null;
+
+        try {
+
+            session = HibernateUtil.getSessionFactory().openSession();
+
+            transaction = session.beginTransaction();
+            Query<MonthlyExpenses> query =
+                    session.createQuery(
+                        "FROM MonthlyExpenses " +
+                        "WHERE expenseYear = :year " +
+                        "AND expenseMonth = :month",
+                        MonthlyExpenses.class
+                    );            query.setParameter("year", year);
+            query.setParameter("month",month);
+            list=query.list();
+            transaction.commit();
+
+        } catch (Exception e) {
+
+            if (transaction != null) {
+                transaction.rollback();
+            }
+
+            e.printStackTrace();
+
+        } finally {
+
+            if (session != null) {
+                session.close();
+            }
+        }
+        return list;
+        
+    }
     
 }

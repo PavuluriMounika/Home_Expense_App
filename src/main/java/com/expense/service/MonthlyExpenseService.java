@@ -17,4 +17,8 @@ public class MonthlyExpenseService {
     public void saveMonthlyExpenses(List<MonthlyExpenses> expenseList) {
         dao.saveMonthlyExpenses(expenseList);
     }
+    public List<MonthlyExpenses> getMonthlyExpenses(int year,String month) {
+
+        return dao.getMonthlyExpenses(year, month);
+    }
 }

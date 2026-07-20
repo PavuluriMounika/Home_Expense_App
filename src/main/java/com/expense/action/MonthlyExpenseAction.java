@@ -29,10 +29,12 @@ public class MonthlyExpenseAction extends ActionSupport{
     private List<MonthlyExpense> list;
     private int year;
     private  String expenseList;
+    private List<MonthlyExpenses> monthlyList;
 
     private String month;
 
     private List<DefaultExpense> defaultExpenseList;
+    private List<Object> finalList;
     
     public String execute(){
         Calendar calendar = Calendar.getInstance();
@@ -55,6 +57,10 @@ public class MonthlyExpenseAction extends ActionSupport{
 
         System.out.println("Month = " + month);
         defaultExpenseList = defaultExpenseService.getExpenseList();
+        monthlyList=service.getMonthlyExpenses(year, month);
+        finalList = new ArrayList<>();
+        finalList.addAll(defaultExpenseList);
+        finalList.addAll(monthlyList);
 
         return SUCCESS;
 
@@ -128,8 +134,23 @@ public class MonthlyExpenseAction extends ActionSupport{
     public void setExpenseList(String expenseList) {
         this.expenseList = expenseList;
     }
-    
 
-    
-    
+    public List<MonthlyExpenses> getMonthlyList() {
+        return monthlyList;
     }
+
+    public void setMonthlyList(List<MonthlyExpenses> monthlyList) {
+        this.monthlyList = monthlyList;
+    }
+
+    public List<Object> getFinalList() {
+        return finalList;
+    }
+
+    public void setFinalList(List<Object> finalList) {
+        this.finalList = finalList;
+    }
+    
+       
+    
+}
