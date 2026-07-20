@@ -91,18 +91,20 @@ $(document).ready(function () {
             let amount = $(this).find(".amountValue").val();
             let description = $(this).find(".descriptionValue").val();
 
-            if(item !== "" && amount !== ""){
-
-                expenseList.push({
-                    itemId: item,
-                    amount: amount,
-                    description: description,
-                    expenseYear: $("#yearId").val(),
-                    expenseMonth: $("#monthId").val(),
-                    activeFlag: "Y"
-                });
-            }
-        });
+                if(
+                    item.trim() !== "" &&
+                    amount.trim() !== ""
+                ){
+                    expenseList.push({
+                        itemId: parseInt(item),
+                        amount: parseFloat(amount),
+                        description: description,
+                        expenseYear: $("#yearId").val(),
+                        expenseMonth: $("#monthId").val(),
+                        activeFlag: "Y"
+                    });
+                }
+                    });
 
         console.log("Expense List:");
         console.log(expenseList);

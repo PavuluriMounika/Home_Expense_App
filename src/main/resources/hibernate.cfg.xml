@@ -40,6 +40,7 @@
         <mapping class="com.expense.model.ExpenseItem"/>
         <mapping class="com.expense.model.AppLabel"/>
         <mapping class="com.expense.model.DefaultExpense"/>
+        <mapping class="com.expense.model.MonthlyExpenses"/>
         
 
     </session-factory>
