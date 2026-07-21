@@ -16,6 +16,7 @@ import java.util.Calendar;
 import java.util.List;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.Gson;
+import java.math.BigDecimal;
 
 /**
  *
@@ -35,6 +36,9 @@ public class MonthlyExpenseAction extends ActionSupport{
 
     private List<DefaultExpense> defaultExpenseList;
     private List<Object> finalList;
+    private double defaultTotal;
+    private double monthlyTotal;
+    private double grandTotal;
     
     public String execute(){
         Calendar calendar = Calendar.getInstance();
@@ -61,8 +65,15 @@ public class MonthlyExpenseAction extends ActionSupport{
         finalList = new ArrayList<>();
         finalList.addAll(defaultExpenseList);
         finalList.addAll(monthlyList);
-
-        return SUCCESS;
+        for (DefaultExpense expense : defaultExpenseList) {
+            defaultTotal += expense.getAmount().doubleValue();
+        }
+        for(MonthlyExpenses expense : monthlyList){
+            monthlyTotal += expense.getAmount();
+        }
+        grandTotal = defaultTotal + monthlyTotal;
+        
+        return SUCCESS; 
 
     }
     public String saveMonthlyExpenses() {
@@ -150,6 +161,34 @@ public class MonthlyExpenseAction extends ActionSupport{
     public void setFinalList(List<Object> finalList) {
         this.finalList = finalList;
     }
+
+    public double getDefaultTotal() {
+        return defaultTotal;
+    }
+
+    public void setDefaultTotal(double defaultTotal) {
+        this.defaultTotal = defaultTotal;
+    }
+
+   
+
+    
+    public double getMonthlyTotal() {
+        return monthlyTotal;
+    }
+
+    public void setMonthlyTotal(double monthlyTotal) {
+        this.monthlyTotal = monthlyTotal;
+    }
+
+    public double getGrandTotal() {
+        return grandTotal;
+    }
+
+    public void setGrandTotal(double grandTotal) {
+        this.grandTotal = grandTotal;
+    }
+
     
        
     

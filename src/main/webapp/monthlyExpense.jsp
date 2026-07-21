@@ -30,6 +30,20 @@
             list="monthList"
             headerKey=""
             headerValue="Select Month"/><br></br>
+            <div>
+                Default Total:
+                <span id="defaultTotal">0</span>
+            </div>
+
+            <div>
+                Monthly Total:
+                <span id="monthlyTotal">0</span>
+            </div>
+
+            <div>
+                Grand Total:
+                <span id="grandTotal">0</span>
+            </div>
         <button id="loadBtn">Load Default Expenses</button>
         <div id="monthlyExpenseTable" style="display: none">   
                 <table border="1">
@@ -47,6 +61,7 @@
                 </tbody>
             </table>
         </div>
+        
         <button id="addRowBtn">Add Row</button>
         <button id="saveBtn">Save</button>
     </body>

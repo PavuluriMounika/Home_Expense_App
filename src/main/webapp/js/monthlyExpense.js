@@ -23,7 +23,7 @@ $(document).ready(function () {
                     month: month
                 },
                 success: function(response){
-                    $.each(response,function(i,expense){
+                    $.each(response.finalList, function(i, expense){
                         rows += `
                             <tr>
                                 <td>
@@ -49,7 +49,11 @@ $(document).ready(function () {
                     isTableVisible = true;
                      $("#monthlyExpenseTable").show();
                     $("#loadBtn").text("Hide Default Expenses");
-                    
+                    $("#defaultTotal").text(response.defaultTotal);
+
+                    $("#monthlyTotal").text(response.monthlyTotal);
+
+                    $("#grandTotal").text(response.grandTotal);
                     console.log(response);
 
                 }

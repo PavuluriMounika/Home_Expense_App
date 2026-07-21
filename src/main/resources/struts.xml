@@ -93,9 +93,7 @@
                 class="com.expense.action.MonthlyExpenseAction"
                 method="loadDefaultExpenses">
 
-            <result type="json">
-                <param name="root">finalList</param>
-            </result>
+            <result type="json"/>
 
     </action>
     <action

@@ -89,4 +89,16 @@ public class MonthlyExpenses {
     public void setActiveFlag(String activeFlag) {
         this.activeFlag = activeFlag;
     }
+    @Override
+    public String toString() {
+        return "MonthlyExpenses{" +
+                "monthlyExpenseId=" + monthlyExpenseId +
+                ", expenseYear=" + expenseYear +
+                ", expenseMonth='" + expenseMonth + '\'' +
+                ", itemId=" + itemId +
+                ", amount=" + amount +
+                ", description='" + description + '\'' +
+                ", activeFlag='" + activeFlag + '\'' +
+                '}';
+    }
 }
