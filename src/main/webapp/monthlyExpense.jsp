@@ -53,6 +53,8 @@
                         <th>Item Id</th>
                         <th>Amount</th>
                         <th>Description</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
 

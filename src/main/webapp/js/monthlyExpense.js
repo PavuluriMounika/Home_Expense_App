@@ -41,8 +41,17 @@ $(document).ready(function () {
                                 <td>
                                     <input class="descriptionValue" value="${expense.description}">
                                 </td>
+                                <td>
+                                    <button class="editBtn">Edit</button>
+                                </td>
+
+                                <td>
+                                    <button class="deleteBtn">Delete</button>
+                                </td>
+                        
                             </tr>
                             `;
+                        
 
                     });
                     $("#monthlyExpenseBody").html(rows);
@@ -77,11 +86,20 @@ $(document).ready(function () {
                     <td>
                         <input class="amountValue">
                     </td>
+
                     <td>
                         <input class="descriptionValue">
                     </td>
+
+                    <td>
+                        <button class="editBtn">Edit</button>
+                    </td>
+
+                    <td>
+                        <button class="deleteBtn">Delete</button>
+                    </td>
                 </tr>
-                `;
+                    `;
             $("#monthlyExpenseBody").append(row);
 
         });
