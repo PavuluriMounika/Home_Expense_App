@@ -152,5 +152,22 @@ $(document).ready(function () {
         });
 
     });
+    $(document).on("click", ".deleteBtn", function () {
 
+        var row = $(this).closest("tr");
+        var expenseId = row.find(".foodValue").val();
+
+        $.ajax({
+            url: "deleteMonthlyExpense.action",
+            type: "POST",
+            data: {
+                expenseId: expenseId
+            },
+            success: function(response) {
+                console.log("Deleted");
+                row.remove();
+            }
+        });
+
+    });
 });
